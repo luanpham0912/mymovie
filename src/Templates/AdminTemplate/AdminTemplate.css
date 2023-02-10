@@ -1,0 +1,6 @@
+.customMenuItem , .customMenuItem div:active {
+    background: none !important
+}
+.customSider.ant-layout-sider-collapsed .divCustom p{
+    display: none;
+}

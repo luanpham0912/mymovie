@@ -1,0 +1,40 @@
+.monitor::before{
+    content: '';
+    position: absolute;
+    border-bottom: 30px solid rgba(0, 0, 0, 0.3);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 98%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ghe{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    background-color: grey;
+    border-radius: 4px;
+    margin: 8px;
+}
+
+
+.gheVip{
+    background-color: orange !important;
+}
+
+.gheKhachDat{
+    background-color: brown !important;
+    cursor: no-drop;
+}
+.gheDangDat{
+    background-color: green !important;
+}
+
+.gheMinhDat{
+    background-color: palevioletred !important;
+}
