@@ -96,7 +96,7 @@ export default function AdminUsers(props) {
             if (window.confirm("bạn có chắc xóa người dùng " + record.taiKhoan)) {
               dispatch(XoaNguoiDungAction(record.taiKhoan))
             }
-          }} className='text-red-600'> <DeleteOutlined /></span>
+          }} className='text-red-600 cursor-pointer'> <DeleteOutlined /></span>
 
 
         </Fragment>

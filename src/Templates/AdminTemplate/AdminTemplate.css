@@ -4,3 +4,6 @@
 .customSider.ant-layout-sider-collapsed .divCustom p{
     display: none;
 }
+.customMenuItem .ant-menu-title-content a:hover {
+    color: inherit;
+}

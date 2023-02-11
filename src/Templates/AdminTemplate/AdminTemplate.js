@@ -10,17 +10,17 @@ const { Header, Content, Footer, Sider } = Layout;
 const items = [
     {
         key: "1",
-        label: <NavLink to='/admin' strict  activeStyle={{color:"purple"}}>Movies</NavLink>,
+        label: <NavLink to='/admin'  activeStyle={{color:"rgb(140,12,64)",fontWeight : "bold"}}>Movies</NavLink>,
         icon : <FileOutlined/>,
         children: [{
             key: '4',
-            label: <NavLink  to='/admin' exact activeStyle={{color:"purple"}}>Movies</NavLink>,
+            label: <NavLink  to='/admin' exact activeStyle={{color:"rgb(140,12,64)",fontWeight : "bold"}}>Movies</NavLink>,
             className : 'customMenuItem'
 
         },
         {
             key: '5',
-            label: <NavLink  to='/admin/addnew' activeStyle={{color:"purple"}}>Add new</NavLink>,
+            label: <NavLink  to='/admin/addnew' activeStyle={{color:"rgb(140,12,64)",fontWeight : "bold"}}>Add new</NavLink>,
             className : 'customMenuItem'
 
 
@@ -29,16 +29,16 @@ const items = [
     },
     {
         key: "2",
-        label:  <NavLink to='/users' activeStyle={{color:"purple"}}>Users</NavLink>,
+        label:  <NavLink to='/users' activeStyle={{color:"rgb(140,12,64)",fontWeight : "bold"}}>Users</NavLink>,
         children: [{
             key: '6',
-            label: <NavLink  to='/users' exact activeStyle={{color:"purple"}}>Users</NavLink>,
+            label: <NavLink  to='/users' exact activeStyle={{color:"rgb(140,12,64)",fontWeight : "bold"}}>Users</NavLink>,
             className : 'customMenuItem'
 
         },
         {
             key: '7',
-            label: <NavLink  to='/users/adduser' activeStyle={{color:"purple"}}>Add Users</NavLink>,
+            label: <NavLink  to='/users/adduser' activeStyle={{color:"rgb(140,12,64)",fontWeight : "bold"}}>Add Users</NavLink>,
             className : 'customMenuItem'
 
 

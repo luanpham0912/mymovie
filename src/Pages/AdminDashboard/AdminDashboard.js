@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
-import { AutoComplete, Table } from 'antd';
-import { EditOutlined, DeleteOutlined, SearchOutlined,DiffOutlined } from '@ant-design/icons';
+import React, { useMemo, useRef, useState } from 'react'
+import { AutoComplete, Popover, Table } from 'antd';
+import { EditOutlined, DeleteOutlined, SearchOutlined, DiffOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -17,7 +17,17 @@ export default function AdminDashboard(props) {
   useEffect(() => {
     dispatch(LayDanhSachFilmAction())
   }, [])
+  let searchRef = useRef(null)
 
+  const [showArrow, setShowArrow] = useState(false);
+  const [arrowAtCenter, setArrowAtCenter] = useState(false);
+  const mergedArrow = useMemo(() => {
+    if (arrowAtCenter)
+      return {
+        arrowPointAtCenter: true,
+      };
+    return showArrow;
+  }, [showArrow, arrowAtCenter]);
   const columns = [
     {
       title: 'mã phim',
@@ -74,14 +84,29 @@ export default function AdminDashboard(props) {
       key: 'action',
       render: (text, record, index) => {
         return <Fragment>
-          <NavLink key={1} to={`/admin/edit/${record.maPhim}`} className='text-blue-600 mr-2'> <EditOutlined /></NavLink>
-          <span key={2} onClick={() => {
-           
-            if (window.confirm("bạn có chắc xóa phim " + record.tenPhim)) {
-              dispatch(xoaPhimAction(record.maPhim))
-            }
-          }} className='text-red-600'> <DeleteOutlined /></span>
-          <NavLink key={3} to={`/admin/showtimes/${record.maPhim}`} className='text-lime-600 ml-2'><DiffOutlined /></NavLink>
+          <Popover placement="bottomRight" title={text} content={
+            <p className='mb-0'>Cập nhật phim</p>
+          }    arrow={mergedArrow}>
+            <NavLink key={1} to={`/admin/edit/${record.maPhim}`} className='text-blue-600 mr-2'> <EditOutlined /></NavLink>
+          </Popover>
+
+          <Popover placement="bottomRight" title={text} content={
+            <p className='mb-0'>Xóa phim</p>
+          }    arrow={mergedArrow}>
+         
+            <span key={2} onClick={() => {
+
+              if (window.confirm("bạn có chắc xóa phim " + record.tenPhim)) {
+                dispatch(xoaPhimAction(record.maPhim))
+              }
+            }} className='text-red-600 cursor-pointer'> <DeleteOutlined /></span>
+          </Popover>
+          <Popover placement="bottomRight" title={text} content={
+            <p className='mb-0'>Tạo lịch chiếu</p>
+          }    arrow={false}>
+            <NavLink key={3} to={`/admin/showtimes/${record.maPhim}`} className='text-lime-600 ml-2'><DiffOutlined /></NavLink>
+          </Popover>
+
 
         </Fragment>
       },
@@ -90,7 +115,6 @@ export default function AdminDashboard(props) {
     },
   ];
 
-  let searchRef = useRef(null)
 
   // const onChange = (pagination, filters, sorter, extra) => {
   //   console.log('params', pagination, filters, sorter, extra);
@@ -98,7 +122,7 @@ export default function AdminDashboard(props) {
 
 
   const handleSearch = (value) => {
-                            //debounce search
+    //debounce search
     if (searchRef.current) {
 
       clearTimeout(searchRef.current)
@@ -125,7 +149,7 @@ export default function AdminDashboard(props) {
         {/* <Input.Search size="middle" placeholder="Nhập tên phim bạn muốn tìm kiếm" /> */}
       </AutoComplete>
       <span> <SearchOutlined className='text-blue-600' /></span>
-      <Table size='small' rowKey={"maPhim"} columns={columns} dataSource={arrFilmDefault}  />
+      <Table size='small' rowKey={"maPhim"} columns={columns} dataSource={arrFilmDefault} />
     </div>
   )
 }
