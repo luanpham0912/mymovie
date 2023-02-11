@@ -7,6 +7,7 @@ import './Detail.css'
 import { LayThongTinLichChieuPhimAction } from '../../Redux/Actions/QuanLyRapAction';
 import ComponentTabs from '../../Components/Tabs/Tabs';
 import { DivRating } from '../../Components/RatingCircle';
+import moment from 'moment';
 
 export default function Detail(props) {
 
@@ -30,8 +31,8 @@ export default function Detail(props) {
             <img className='w-1/2 ml-auto' src={detailPhim?.hinhAnh} alt="phim" />
           </div>
           <div className='ml-2 grid content-center text-white col-span-2'>
-            <p className='text-xs m-0'>Ngày chiếu: {detailPhim?.ngayKhoiChieu}</p>
-            <h1 className='text-xl'>{detailPhim?.tenPhim}</h1>
+            <p className='text-xs m-0 mb-2 text-violet-200'>Ngày chiếu: <span className='text-white text-base tracking-wide'>{moment(detailPhim?.ngayKhoiChieu).format("DD/MM/YYYY - hh:mm:ss")}</span></p>
+            <h1 className='text-3xl'>{detailPhim?.tenPhim}</h1>
           </div>
           <div>
             <div className="circle-wrap mb-3">

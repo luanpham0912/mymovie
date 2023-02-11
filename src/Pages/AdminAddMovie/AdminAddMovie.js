@@ -6,23 +6,18 @@ import { useFormik } from 'formik'
 import { PlusOutlined } from '@ant-design/icons';
 
 import {
-  Button,
-  Cascader,
-  Checkbox,
+
   DatePicker,
   Form,
   Input,
   InputNumber,
-  Radio,
-  Select,
+
   Switch,
-  TreeSelect,
-  Upload,
+
 } from 'antd';
 import { useState } from 'react';
 import { themPhimUploadHinhAction } from '../../Redux/Actions/QuanLyPhimAction'
-const { RangePicker } = DatePicker;
-const { TextArea } = Input;
+
 
 export default function AdminAddMovie() {
     const dispatch = useDispatch()
@@ -71,15 +66,14 @@ export default function AdminAddMovie() {
   }
 
     const onChangeDatePicker = (value, dateString) => {
-      console.log('Selected Time: ', value);
-      console.log('Formatted Selected Time: ', dateString);
+
       formik.setFieldValue("ngayKhoiChieu",dateString)
     };
-    const onOk = (value,) => {
-      console.log('onOk: ', moment(value).format("DD/MM/YYYY - hh:mm:ss"));
+    // const onOk = (value,) => {
+    //   console.log('onOk: ', moment(value).format("DD/MM/YYYY - hh:mm:ss"));
     
 
-    };
+    // };
 
     const handleChangePicture = (e) => {
         let file = e.target.files[0]
@@ -100,7 +94,7 @@ export default function AdminAddMovie() {
 
     return (
       <>
-        <h2 className='font-bold text-2xl'> THÊM PHIM </h2>
+        <h3 className='text-3xl'> THÊM PHIM </h3>
         <Form
           onSubmitCapture={formik.handleSubmit}
           labelCol={{
@@ -110,8 +104,6 @@ export default function AdminAddMovie() {
             span: 14,
           }}
           layout="horizontal"
-          // onValuesChange={onFormLayoutChange}
-          // disabled={componentDisabled}
           style={{
             maxWidth: 800,
           }}
@@ -126,7 +118,7 @@ export default function AdminAddMovie() {
             <Input name='moTa' onChange={formik.handleChange} />
           </Form.Item>
           <Form.Item label="Ngày khởi chiếu">
-          <DatePicker name='ngayKhoiChieu'  format={"DD/MM/YYYY"} onChange={onChangeDatePicker} onOk={onOk} />
+          <DatePicker name='ngayKhoiChieu'  format={"DD/MM/YYYY"} onChange={onChangeDatePicker}  />
           </Form.Item>
   
           <Form.Item label="Đang chiếu" valuePropName="checked">

@@ -29,26 +29,23 @@ export default function Profile() {
   }
 
   const handleChangeInput = (e) => {
-    console.log("first", thongTinTaiKhoan)
+   
     setShow(e.target.checked)
   }
   const handleChangeInputText = (e) => {
     const { name, value } = e.target
-    console.log(name, value)
+ 
     setInputPassword({ ...inputPassword, value :{...inputPassword.value,[name]: value}  })
   }
   const handleSubmitForm = (e) => {
     
     e.preventDefault()
-    console.log("1111",inputPassword)
-    console.log("2222",typeof thongTinTaiKhoan.matKhau)
-
     if (thongTinTaiKhoan.matKhau === inputPassword.value.oldPassWord) {
         setInputPassword({
           ...inputPassword,errors : {...inputPassword.errors,oldPassWord : "" }
         })
     }else{
-      console.log("hahahaha")
+   
       setInputPassword({
         ...inputPassword,errors : {...inputPassword.errors,oldPassWord : "Mật khẩu không đúng! " }
       })

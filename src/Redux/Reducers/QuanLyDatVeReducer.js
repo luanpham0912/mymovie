@@ -32,7 +32,7 @@ export const QuanLyDatVeReducer = (state = initialState, action) => {
 
     }
     case "CHUYEN_TAB" : {
-      console.log("chuyển tab")
+   
       state.page = action.tab
       state.arrGheDangDat = []
       return {...state}

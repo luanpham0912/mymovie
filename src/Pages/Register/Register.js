@@ -22,14 +22,14 @@ export default function Register() {
 
     }, 
     onSubmit: values => {
-     console.log("values" , values)
+
      dispatch(DangKyAction(values))
     },
 
   })
 
   const handleChangeMaNhom =( e ) => {
-    console.log(e.target.value)
+
     formik.setFieldValue('maNhom' , e.target.value)
   }
   return <>

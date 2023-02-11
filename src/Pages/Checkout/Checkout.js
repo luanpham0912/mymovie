@@ -140,7 +140,7 @@ export function KetQuaDatVe(props) {
   const { thongTinTaiKhoan } = props
   const { thongTinDatVe } = thongTinTaiKhoan
 
-  console.log("first", thongTinDatVe)
+ 
 
 
   const renderThongTinDatVe = () => {
@@ -194,7 +194,6 @@ export default function DatVe(props) {
   const { page } = useSelector(state => state.QuanLyDatVeReducer)
   const { thongTinTaiKhoan, userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
 
-  console.log(userLogin, "uslogin")
 
   // const [toggleState, setToggleState] = useState(page);
   const dispatch = useDispatch()
@@ -234,7 +233,7 @@ export default function DatVe(props) {
           2. Kết quả đặt vé
         </div>
         <div
-          className={"text-purple-600 pt-3  ml-14  cursor-pointer"}
+          className={"text-purple-600 pt-2  ml-14  cursor-pointer"}
           onClick={() => history.push('/')}
         >
           <HomeOutlined className='text-xl' />

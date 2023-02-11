@@ -32,17 +32,17 @@ export default function AdminUsersEdit(props) {
         onSubmit: values => {
             values.maNhom = "GP00"
             dispatch(CapNhapThongTinNguoiDungAction(values))
-            console.log("values", values)
+          
         },
 
     })
     const handleChangeMaLoaiNguoiDung = (e) => {
-        console.log(e.target.value)
+       
         formik.setFieldValue('maLoaiNguoiDung', e.target.value)
     }
     return (
         <>
-            <h2 className='font-bold text-2xl'> CẬP NHẬP TÀI KHOẢN </h2>
+            <h3 className=' text-3xl'> CẬP NHẬP TÀI KHOẢN </h3>
             <form onSubmit={formik.handleSubmit}>
                 {/* Username input */}
                 <div className="mb-6">

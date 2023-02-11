@@ -1,8 +1,9 @@
 import './AdminTemplate.css'
 import React, { useState } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Redirect, Route } from 'react-router-dom';
 import { FileOutlined, PieChartOutlined, UserOutlined, DesktopOutlined, TeamOutlined } from '@ant-design/icons';
 import { Breadcrumb, Button, Layout, Menu, theme } from 'antd';
+import { USERLOGIN } from '../../Utils/ConstantDoMain/ConstantDomain';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -62,7 +63,10 @@ export const AdminTemplate = (props) => {
     } = theme.useToken();
 
     return <Route {...restProps} render={(propsRoute) => {
-
+        if(!localStorage.getItem(USERLOGIN)){
+            return <Redirect to="/login"/>
+        }
+    
         return <>
             <Layout
                 style={{
@@ -70,7 +74,7 @@ export const AdminTemplate = (props) => {
                 }}
             >
                 <Sider className='customSider' width={200} collapsible collapsed={collapsed} onCollapse={(value,type) => {
-                    console.log(value,type)
+                   
                     
                     setCollapsed(value)}}>
                     <div

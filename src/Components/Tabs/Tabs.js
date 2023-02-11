@@ -29,7 +29,7 @@ function ComponentTabs() {
                 <img src={rap.hinhAnh} className=' w-10 h-10 mr-2' alt='123' />
                 <div className=''>
                   <h1 className='m-0 text-[#1677ff]'>{rap.tenCumRap}</h1>
-                  {/* <p className='text-red-600 text-left mt-1'>Chi tiết</p> */}
+              
                 </div>
               </div>
               <div className='grid grid-cols-4 text-white mt-5'>

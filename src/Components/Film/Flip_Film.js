@@ -10,7 +10,7 @@ import { Button, Modal } from 'antd';
 export default function Film_Flip(props) {
 
     const { item } = props;
-    console.log("item",item.hot)
+   
     
     const dispatch = useDispatch()
 
@@ -26,7 +26,7 @@ export default function Film_Flip(props) {
         setIsModalOpen(false);
 
     };
-    console.log("hahahaha", openTrailer)
+ 
     const cssHot = item.hot ? "cssHot" : ""
     return (
 

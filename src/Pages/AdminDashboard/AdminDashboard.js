@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { LayDanhSachFilmAction, xoaPhimAction } from '../../Redux/Actions/QuanLyPhimAction';
 import { NavLink } from 'react-router-dom';
 import { Fragment } from 'react';
-const { Search } = Input;
+
 
 
 export default function AdminDashboard(props) {
@@ -76,7 +76,7 @@ export default function AdminDashboard(props) {
         return <Fragment>
           <NavLink key={1} to={`/admin/edit/${record.maPhim}`} className='text-blue-600 mr-2'> <EditOutlined /></NavLink>
           <span key={2} onClick={() => {
-            console.log("record.paPhim",record.maPhim)
+           
             if (window.confirm("bạn có chắc xóa phim " + record.tenPhim)) {
               dispatch(xoaPhimAction(record.maPhim))
             }
@@ -92,36 +92,26 @@ export default function AdminDashboard(props) {
 
   let searchRef = useRef(null)
 
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
+  // const onChange = (pagination, filters, sorter, extra) => {
+  //   console.log('params', pagination, filters, sorter, extra);
+  // };
 
 
   const handleSearch = (value) => {
-    console.log(value)                             //debounce search
+                            //debounce search
     if (searchRef.current) {
 
       clearTimeout(searchRef.current)
     }
     searchRef.current = setTimeout(() => {
       dispatch(LayDanhSachFilmAction(value))
-    }, 300)
+    }, 400)
 
   };
 
   return (
     <div>
-      <h3 className='text-4xl'>Quản lý phim</h3>
-      {/* <Search
-      placeholder="input search text"
-      allowClear
-      enterButton = {<SearchOutlined className='text-blue-600'/>}
-      onSearch={onSearch}
-      style={{
-        width: "100%",
-        marginBottom : "20px"
-      }}
-    /> */}
+      <h3 className='text-3xl'>QUẢN LÝ PHIM</h3>
       <AutoComplete
         style={{
           width: '98%',
@@ -135,7 +125,7 @@ export default function AdminDashboard(props) {
         {/* <Input.Search size="middle" placeholder="Nhập tên phim bạn muốn tìm kiếm" /> */}
       </AutoComplete>
       <span> <SearchOutlined className='text-blue-600' /></span>
-      <Table size='small' rowKey={"maPhim"} columns={columns} dataSource={arrFilmDefault} onChange={onChange} />
+      <Table size='small' rowKey={"maPhim"} columns={columns} dataSource={arrFilmDefault}  />
     </div>
   )
 }

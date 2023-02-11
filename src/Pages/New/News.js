@@ -5,7 +5,7 @@ import Contacts from '../Contact/Contacts'
 import MenuHome from '../Home/MenuHome/MenuHome'
 
 export default function News(props) {
-  console.log(props,"props")
+ 
   const dispatch = useDispatch()
   useEffect(() => {
 

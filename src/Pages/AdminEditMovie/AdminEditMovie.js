@@ -16,7 +16,7 @@ export default function AdminEditMovie(props) {
 
     const dispatch = useDispatch()
     const { thongTinPhimEdit } = useSelector(state => state.QuanLyPhimReducer)
-    console.log(thongTinPhimEdit)
+   
     useEffect(() => {
 
         dispatch(layThongTinPhimAction(props.match.params.id))
@@ -54,10 +54,10 @@ export default function AdminEditMovie(props) {
                 }
             }
             dispatch(capNhapThongTinPhimUploadAction(formData))
-            console.log(" console.log(first)", values)
+        
         },
     });
-    console.log(formik.values)
+   
     const onChangeSwitchs = (name) => {
         return (value) => {
             formik.setFieldValue(name, value)
@@ -73,15 +73,14 @@ export default function AdminEditMovie(props) {
     }
 
     const onChangeDatePicker = (value, dateString) => {
-        console.log('Selected Time: ', value);
-        console.log('Formatted Selected Time: ', dateString);
+ 
         formik.setFieldValue("ngayKhoiChieu", dateString)
     };
 
 
     const handleChangePicture = async (e) => {
         let file = e.target.files[0]
-        console.log(file)
+      
         await  formik.setFieldValue('hinhAnh', file);
         if (file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png') {
             let render = new FileReader()
@@ -98,7 +97,7 @@ export default function AdminEditMovie(props) {
 
     return (
         <>
-
+            <h3 className='text-3xl'>CẬP NHẬP PHIM</h3>
             <Form
                 onSubmitCapture={formik.handleSubmit}
                 labelCol={{

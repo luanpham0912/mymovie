@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import styleSlick from './MultipleRowSlick.module.css';
-// import Film from '../Film/Film'
-// import Film_Flip from "../Film/Film_Flip";
+
+
 import { useDispatch,useSelector } from "react-redux";
 import Film_Flip from "../Film/Flip_Film";
 import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../Redux/Types/ConstQuanLyPhim/ConstQuanLyPhim";
@@ -57,13 +57,12 @@ const MultipleRowSlick = (props) => {
 
   let activeClassSC = sapChieu === true ? 'active_Film' : 'none_active_Film';
   
-  // console.log('activeSC',activeClassSC)
-  
+ 
   const settings = {
     className: "center  variable-width h-full",
     
-    // autoplay :true,
-    // autoplaySpeed : 2500,
+    autoplay :true,
+    autoplaySpeed : 2500,
     centerMode: true,
     infinite: true,
     centerPadding: "60px",

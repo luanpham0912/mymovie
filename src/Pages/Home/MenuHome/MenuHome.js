@@ -5,7 +5,7 @@ import monent from 'moment'
 import { NavLink } from 'react-router-dom';
 
 export default function MenuHome(props) {
-  console.log(props,"123123123123123")
+  
   const renderMenu = () => {
     return props.heThongRapChieu.map((cumrap, index) => {
       return <TabPane tab={<img src={cumrap.logo} className='rounded-full w-14 h-14' alt={cumrap.logo} />} key={cumrap.maHeThongRap}>

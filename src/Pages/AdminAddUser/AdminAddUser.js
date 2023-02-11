@@ -13,7 +13,7 @@ export default function AdminAddUser(props) {
     const { userEdit } = useSelector(state => state.QuanLyUsers)
    
     useEffect(() => {
-        console.log("in here")
+      
         dispatch(TimKiemNguoiDungAction(props.match.params.id))
     }, [])
     const [typePassword, setTypePassword] = useState(false)
@@ -33,17 +33,17 @@ export default function AdminAddUser(props) {
         onSubmit: values => {
             values.maNhom = "GP00"
             dispatch(ThemNguoiDungAction(values))
-            console.log("values", values)
+       
         },
 
     })
     const handleChangeMaLoaiNguoiDung = (e) => {
-        console.log(e.target.value)
+       
         formik.setFieldValue('maLoaiNguoiDung', e.target.value)
     }
     return (
         <>
-            <h2 className='font-bold text-2xl'> THÊM TÀI KHOẢN </h2>
+            <h3 className='text-3xl'> THÊM NGƯỜI DÙNG </h3>
             <form onSubmit={formik.handleSubmit}>
                 {/* Username input */}
                 <div className="mb-6">

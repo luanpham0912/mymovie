@@ -11,16 +11,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layThongTinPhimAction } from '../../Redux/Actions/QuanLyPhimAction';
 import { LayThongCumRapTheoHeThongAction, LayThongTinLichChieuHeThongRapAction } from '../../Redux/Actions/QuanLyRapAction';
 import { TaoLichChieuAction } from '../../Redux/Actions/QuanLyDatVeAction';
+import { Notificantion } from '../../Components/Notificantion/Notificantion';
 
 export default function AdminShowtime(props) {
     const dispatch = useDispatch()
     const { thongTinPhimEdit } = useSelector(state => state.QuanLyPhimReducer)
     const { heThongRapChieu, cumRap } = useSelector(state => state.QuanLyRapReducer)
 
-    console.log(cumRap)
+ 
     useEffect(() => {
-        console.log(" console.log(first)")
-
         dispatch(layThongTinPhimAction(props.match.params.id))
         dispatch(LayThongTinLichChieuHeThongRapAction())
 
@@ -37,16 +36,14 @@ export default function AdminShowtime(props) {
             giaVe : ''
         },
         onSubmit: values => {
-            console.log(values)
+         
             for (let key in values) {
                 if (values[key] === '') {
-                    alert('vui lòng nhập đầy đủ thông tin trước khi ấn tạo lịch chiếu')
+                    Notificantion("warning" , 'vui lòng nhập đầy đủ thông tin trước khi ấn tạo lịch chiếu' )
                     return
                 }
                 if (values["giaVe"] < 75000 || values["giaVe"] > 120000) {
-                      console.log(values["giaVe"])
-
-                    alert('vui lòng nhập giá vé từ 75.000 đến 120.000')
+                    Notificantion("warning" , 'vui lòng nhập giá vé từ 75.000 đến 120.000')
                     return
         
                 }
@@ -62,14 +59,14 @@ export default function AdminShowtime(props) {
 
     };
     const handleChangeCumRap = (value) => {
-        console.log("valueeee", value);
+      
         formik.setFieldValue("maRap", value)
     };
 
 
     const handleChangeDatePicker = (value, dateString) => {
 
-        console.log('Formatted Selected Time: ', dateString);
+     
         formik.setFieldValue('ngayChieuGioChieu', dateString)
     };
     const handleChangeInputNumber = (value) => {
@@ -83,15 +80,15 @@ export default function AdminShowtime(props) {
     };
 
     const onOk = (value) => {
-        console.log('onOk: ', value);
+      
     };
     return (
         <>
-            <h3> Tạo Lịch Chiếu </h3>
+            <h3 className='text-xl'> TẠO LỊCH CHIẾU PHIM -  <span className='text-center font-bold text-xl'>{thongTinPhimEdit.tenPhim}</span></h3>
             <div className='flex mt-5'>
                 <div className='w-1/4'>
                     <img className='w-1/2 mx-auto' src={thongTinPhimEdit.hinhAnh} alt='...' />
-                    <p className='text-center mt-2 font-bold text-lg'>{thongTinPhimEdit.tenPhim}</p>
+                   
                 </div>
                 <div className='w-3/4'>
                     <Form

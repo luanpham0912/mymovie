@@ -44,7 +44,6 @@ export const history = createBrowserHistory();
       <AdminTemplate path='/admin' exact Component={AdminDashboard}/>
       <AdminTemplate path='/users'  exact Component={AdminUsers}/>
       <AdminTemplate path='/users/adduser'  exact Component={AdminAddUser}/>
-
       <AdminTemplate path='/users/edit/:id' exact Component={AdminUsersEdit}/>
       <AdminTemplate path='/admin/addnew' exact Component={AdminAddMovie}/>
       <AdminTemplate path='/admin/edit/:id' exact Component={AdminEditMovie}/>

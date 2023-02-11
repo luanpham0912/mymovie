@@ -10,11 +10,11 @@ import { NavLink } from 'react-router-dom'
 import Loading from '../../Components/Loading/Loading'
 
 export default function Home(props) {
-  console.log(props,"props")
+ 
 
   const dispatch = useDispatch()
   const {arrFilm} = useSelector(state => state.QuanLyPhimReducer)
-  console.log("arrFilm",arrFilm)
+  
   const {heThongRapChieu} = useSelector(state => state.QuanLyRapReducer)
 
 
