@@ -19,7 +19,7 @@ export default function Header(props) {
         {
             key: '1',
             label: (
-                <NavLink to='profile'  >Thông tin</NavLink>
+                <NavLink to='/profile'  >Thông tin</NavLink>
             ),
 
         },
