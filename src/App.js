@@ -34,8 +34,8 @@ export const history = createBrowserHistory();
        <Loading/>
       <ScrollToTop >
       <HomeTemplate path='/home' exact Component={Home}/>
-      <HomeTemplate path='/contact' exact Component={Contacts}/>
-      <HomeTemplate path='/news' exact Component={News}/>
+      <HomeTemplate path='/listmovies' exact Component={Contacts}/>
+      <HomeTemplate path='/listshowtimes' exact Component={News}/>
       <HomeTemplate path='/profile' exact Component={Profile}/>
       <UserTemplate path='/login' exact Component={Login}/>
       <UserTemplate path='/register' exact Component={Register}/>

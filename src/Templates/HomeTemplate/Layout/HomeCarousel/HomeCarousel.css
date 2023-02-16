@@ -6,3 +6,8 @@
 .slick-dots li button:before{
     font-size: 0 !important;
 }
+.hiha {
+    background: repeat-x ;
+    background-size: contain;
+    height: 75vh;
+}

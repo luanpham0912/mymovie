@@ -21,7 +21,7 @@ export default function Detail(props) {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(LayThongTinLichChieuPhimAction(props.match.params.id))
-  }, [])
+  }, [props.match.params.id])
 
   return (
     <div className='w-full h-auto' style={{ backgroundImage: `url(${detailPhim?.hinhAnh})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >

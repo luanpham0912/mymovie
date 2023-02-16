@@ -34,9 +34,9 @@ export const UserTemplate = (props) => {
 
 
 
-                    <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 w-0 mb-12 md:mb-0">
+                    <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 w-0 h-1/2 md:mb-0">
                         {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="w-full" alt="Sample image" /> */}
-                        <HomeCarousel />
+                                  <HomeCarousel />
                     </div>
 
                 </div>

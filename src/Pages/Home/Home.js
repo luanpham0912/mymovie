@@ -26,9 +26,11 @@ export default function Home(props) {
   
   return (
     <div> 
-        
+     <div className='relative hiha' style={{backgroundImage : "url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg_c_bricks.png)"}}>  
+        <HomeCarousel />
 
-         <HomeCarousel />
+      </div>
+
 
    
     <div className='md:w-4/5 w-full md:mx-auto mx-0'>

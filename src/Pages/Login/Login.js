@@ -32,11 +32,11 @@ export default function Login() {
         <form onSubmit={ formik.handleSubmit}>
             {/* Email input */}
             <div className="mb-6">
-                <input type="text" className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="taiKhoan" onChange={formik.handleChange} placeholder="Tai Khoan" />
+                <input type="text" className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="taiKhoan" onChange={formik.handleChange} placeholder="Tài Khoản" />
             </div>
             {/* Password input */}
             <div className="mb-6">
-                <input type="password" className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="matKhau" onChange={formik.handleChange} placeholder="Mat Khau" />
+                <input type="password" className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="matKhau" onChange={formik.handleChange} placeholder="Mật Khẩu" />
             </div>
 
             <div className="text-center lg:text-left">
@@ -44,10 +44,10 @@ export default function Login() {
                     Login
                 </button>
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                   Bạn chưa có tài khoản ?
+                   Bạn chưa có tài khoản ? 
                     <button onClick={()=>{
                         history.push('/register')
-                    }} className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out">Đăng ký</button>
+                    }} className="ml-2 text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out">Đăng ký</button>
                 </p>
             </div>
         </form>
