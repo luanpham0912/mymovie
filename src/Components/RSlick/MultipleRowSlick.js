@@ -70,7 +70,7 @@ const MultipleRowSlick = (props) => {
     speed: 500,
     rows: 2,
     slidesPerRow: 2,
-    variableWidth: true,
+    // variableWidth: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };

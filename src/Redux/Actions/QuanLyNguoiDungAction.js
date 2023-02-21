@@ -95,13 +95,19 @@ export const TimKiemNguoiDungAction = (tenTimKiem) => {
      }
   }
 }
-export const CapNhapThongTinNguoiDungAction = (editAccount) => {
+export const CapNhapThongTinNguoiDungAction = (editAccount,admin) => {
   return async dispatch => {
      try{
         const res = await quanLyNguoiDungService.CapNhapThongTinNguoiDung(editAccount)
-        Notificantion('success',"Cập Nhập thành công")
         localStorage.setItem(USERLOGIN,JSON.stringify(res.data.content))
-        history.push('/users')
+
+        if(admin){
+          history.push('/users')
+        }else{
+         window.location.reload()
+        }
+         Notificantion('success',"Cập Nhập thành công")
+
      }catch (err) {
       console.log(err)
      }

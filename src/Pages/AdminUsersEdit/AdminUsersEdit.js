@@ -31,7 +31,7 @@ export default function AdminUsersEdit(props) {
         },
         onSubmit: values => {
             values.maNhom = "GP00"
-            dispatch(CapNhapThongTinNguoiDungAction(values))
+            dispatch(CapNhapThongTinNguoiDungAction(values,true))
           
         },
 

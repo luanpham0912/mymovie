@@ -13,8 +13,7 @@ import { LayDanhSachFilmAction } from '../../../../Redux/Actions/QuanLyPhimActio
 export default function Header(props) {
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
     const dispatch = useDispatch()
-    console.log(props)
-
+    
     const items = [
         {
             key: '1',

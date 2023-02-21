@@ -3,11 +3,11 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 export default function Footer(props) {
-    console.log("first", props)
+   
     const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer)
 
     const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', "logo"]))
-    console.log(arrHeThongRap)
+ 
     return (
         <footer className=" bg-[#001529] text-white body-font mt-8">
             <div className="container px-5 py-14 mx-auto flex  md:flex-row md:flex-nowrap flex-wrap flex-col">
