@@ -1,13 +1,17 @@
 import _ from 'lodash'
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { LayThongTinLichChieuHeThongRapAction } from '../../../../Redux/Actions/QuanLyRapAction'
 
 export default function Footer(props) {
-   
+    useEffect(() => {
+        dispatch(LayThongTinLichChieuHeThongRapAction())
+      }, [])
     const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer)
-
+      console.log("first")
     const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', "logo"]))
- 
+    const dispatch = useDispatch()
+
     return (
         <footer className=" bg-[#001529] text-white body-font mt-8">
             <div className="container px-5 py-14 mx-auto flex  md:flex-row md:flex-nowrap flex-wrap flex-col">
@@ -21,7 +25,7 @@ export default function Footer(props) {
                 <div className="basis-1/4  md:pl-20 md:mt-0 mt-10 md:text-left text-center">
                     <h3 className='mb-4 text-xl font-bold'>Partner</h3>
                     <div className='grid grid-cols-2 justify-items-center md:justify-items-start'>
-                        {arrHeThongRap.map((heThong,index)=>{
+                        {arrHeThongRap?.map((heThong,index)=>{
                             return <img key={index}  src={heThong.logo} alt={heThong.tenHeThongRap} className='w-10 h-10 rounded-full'  />
                         })}
                     </div>
