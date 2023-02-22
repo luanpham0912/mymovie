@@ -48,9 +48,11 @@ export const themPhimUploadHinhAction = (formData) => {
     return async dispatch => {
         try {
             const res = await quanLyPhimService.themPhimUploadHinh(formData)
-            alert("thêm phim thành công")
+            Notificantion("success","thêm phim thành công")
+            
             history.push('/admin')
         }catch (err) {
+            Notificantion("error","thêm phim thất bại")
             console.log(err)
         }
     }
@@ -83,6 +85,7 @@ export const capNhapThongTinPhimUploadAction = (formData) => {
             history.push("/admin")
            console.log(res)
         }catch (err) {
+            Notificantion("error","Cập nhập phim thất bại")
             console.log(err)
         }
     }
@@ -92,10 +95,13 @@ export const xoaPhimAction = (maPhim) =>{
     return async dispatch =>{
         try {
             const res = await quanLyPhimService.xoaPhim(maPhim)
-            alert("xóa phim thành công")
+            Notificantion("success","Xóa phim thành công")
+
             // console.log(res)
             dispatch(LayDanhSachFilmAction())
         }catch(err) {
+            Notificantion("error","Xóa phim thất bại")
+
             console.log(err)
         }
     }

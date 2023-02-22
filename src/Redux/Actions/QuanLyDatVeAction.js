@@ -36,7 +36,7 @@ export const DatVeAction = (DanhSachVe) => {
           
             await dispatch(LayThongTinTaiKhoanAction())
 
-            await Notificantion("success","Đặt vé thành công")
+             Notificantion("success","Đặt vé thành công")
 
             await dispatch({
                 type : "CHUYEN_TAB",
@@ -45,6 +45,7 @@ export const DatVeAction = (DanhSachVe) => {
 
         }catch(Err) {
             console.log(Err.response?.content)
+            Notificantion("error","Đặt vé thất bại")
             dispatch({
                 type : "HIDE_LOADING"
             })
@@ -60,6 +61,8 @@ export const TaoLichChieuAction = (lich) => {
             Notificantion("success","Tạo lịch chiếu thành công")
             history.push('/admin')
         }catch(Err) {
+            Notificantion("error","Tạo lịch chiếu thất bại")
+
             console.log(Err)
          
         }

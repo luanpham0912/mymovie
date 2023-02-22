@@ -109,6 +109,8 @@ export const CapNhapThongTinNguoiDungAction = (editAccount,admin) => {
          Notificantion('success',"Cập Nhập thành công")
 
      }catch (err) {
+      Notificantion('error',"Cập Nhập thất bại")
+
       console.log(err)
      }
   }
@@ -117,10 +119,12 @@ export const XoaNguoiDungAction = (TaiKhoan) => {
   return async dispatch => {
      try{
         const res = await quanLyNguoiDungService.xoaNguoiDung(TaiKhoan)
+        Notificantion('success',"Xóa Người dùng thành công")
 
-        alert('Xóa Người dùng thành công')
         dispatch(LayDanhSachNguoiDung())
      }catch (err) {
+      Notificantion('error',"Xóa Người dùng thất bại")
+
       console.log(err)
      }
   }
@@ -129,11 +133,13 @@ export const ThemNguoiDungAction = (account) => {
   return async dispatch => {
      try{
         const res = await quanLyNguoiDungService.themNguoiDung(account)
+        Notificantion('success',"Thêm người dùng thành công")
 
-        alert('Thêm người dùng thành công')
         history.push('/users')
         dispatch(LayDanhSachNguoiDung())
      }catch (err) {
+      Notificantion('error',"Thêm người dùng thất bại")
+
       console.log(err)
      }
   }
