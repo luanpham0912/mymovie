@@ -61,7 +61,7 @@ export const TaoLichChieuAction = (lich) => {
             Notificantion("success","Tạo lịch chiếu thành công")
             history.push('/admin')
         }catch(Err) {
-            Notificantion("error","Tạo lịch chiếu thất bại")
+             Notificantion("error","Tạo lịch chiếu thất bại")
 
             console.log(Err)
          

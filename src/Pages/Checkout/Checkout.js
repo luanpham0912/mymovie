@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import * as _ from 'lodash'
 import "./Checkout.css"
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,11 +21,27 @@ function Checkout(props) {
   const { chiTietPhongVe, arrGheDangDat } = useSelector(state => state.QuanLyDatVeReducer)
   const { danhSachGhe, thongTinPhim } = chiTietPhongVe
   const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
-
+  const [time , setTime] = useState(60)
+  console.log("time", time)
+  const timerId = useRef()
   useEffect(() => {
     dispatch(QuanLyDatVeAction(props.match.params.id))
 
-  }, [])
+    timerId.current = setInterval(()=>{
+      if(time <= 0){
+        clearInterval(timerId.current)
+        console.log("in here")
+      }else {
+        setTime(preTime => preTime - 1)
+      }
+     
+  },1000)
+    return () => {
+      clearInterval(timerId.current)
+    }
+     
+    
+  }, [time])
 
   const renderDanhSachGhe = () => {
     return danhSachGhe?.map((ghe, index) => {
@@ -39,9 +55,14 @@ function Checkout(props) {
 
       let indexGheDangDat = arrGheDangDat.findIndex(gheDD => gheDD.maGhe === ghe.maGhe)
       let cssGheDangDat = indexGheDangDat !== -1 ? "gheDangDat" : ""
-
+      let disabledButton = () => {
+        if(ghe.daDat || time === 0 ){
+           return true
+        }
+        return false
+      }
       return <Fragment key={index} >
-        <button disabled={ghe.daDat} className={`ghe ${cssGheVip} ${cssGheMinhDat} ${cssGheDaDat} ${cssGheDangDat}`}
+        <button disabled={disabledButton()} className={`ghe ${cssGheVip} ${cssGheMinhDat} ${cssGheDaDat} ${cssGheDangDat}`}
           onClick={() => {
             dispatch({
               type: DAT_VE,
@@ -55,8 +76,12 @@ function Checkout(props) {
       </Fragment>
     })
   }
-
-
+  console.log("timelengt", time.toString().concat("0"))
+   const renderCountdownTime = () => {
+      return <span>
+            00 : {time < 10 ? "0".concat(time.toString()) : time }
+      </span>
+   }
   return (
 
     <div className='w-full h-auto' >
@@ -66,7 +91,7 @@ function Checkout(props) {
             <div className='w-5/6 h-3 bg-black monitor relative'>
               <p className='text-center pt-4 text-orange-400'>Màn hình</p>
             </div>
-
+            <div className='absolute left-[57%] font-bold text-4xl' > {renderCountdownTime()} </div>
             <div className='w-5/6 mt-10 flex justify-center'>
               <div className=''>
                 {renderDanhSachGhe()}
@@ -239,7 +264,7 @@ export default function DatVe(props) {
           <HomeOutlined className='text-xl' />
         </div>
         <div className='ml-auto flex w-auto items-center'>
-          <div> <p className='mb-0 font-thin text-sm text-gray-600'>{userLogin.hoTen}</p> </div>
+          <div> <p className='mb-0 font-normal text-sm tracking-wider text-slate-600'>{userLogin.hoTen}</p> </div>
           <div className='mr-4 ml-2' >
             <img className='rounded-full  h-8' alt='avatar' src={`https://i.pravatar.cc/32?img=${userLogin.hoTen}`} onClick={() => { history.push('/profile') }} />
           </div>

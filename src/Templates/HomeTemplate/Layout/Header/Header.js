@@ -55,7 +55,7 @@ export default function Header(props) {
                     <a onClick={(e) => e.preventDefault()}>
                         <Space className=''>
                             <div className='ml-auto flex w-auto items-center '>
-                                <div> <p className='mb-0 mr-1 font-thin text-sm text-white'>{userLogin.hoTen}</p> </div>
+                                <div> <p className='mb-0 mr-1 font-thin text-xs tracking-wider text-slate-300'>{userLogin.hoTen}</p> </div>
                                 <div className='mx-2' >
                                     <img className='rounded-full  h-8' alt='avatar' src={`https://i.pravatar.cc/32?img=${userLogin.hoTen}`} />
                                 </div>
@@ -138,7 +138,7 @@ export default function Header(props) {
       
                     </div>
                 </div>
-                <div className="items-center flex-shrink-0 hidden lg:flex">
+                <div className="items-center flex-shrink-0 hidden lg:flex ">
                     {renderUser()}
                 </div>
                 <button className="p-4 lg:hidden">
