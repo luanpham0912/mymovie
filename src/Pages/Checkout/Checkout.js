@@ -22,7 +22,6 @@ function Checkout(props) {
   const { danhSachGhe, thongTinPhim } = chiTietPhongVe
   const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
   const [time , setTime] = useState(60)
-  console.log("time", time)
   const timerId = useRef()
   useEffect(() => {
     dispatch(QuanLyDatVeAction(props.match.params.id))
@@ -30,7 +29,6 @@ function Checkout(props) {
     timerId.current = setInterval(()=>{
       if(time <= 0){
         clearInterval(timerId.current)
-        console.log("in here")
       }else {
         setTime(preTime => preTime - 1)
       }
@@ -144,6 +142,7 @@ function Checkout(props) {
                   danhSachVe: arrGheDangDat
                 }
                 dispatch(DatVeAction(DanhSachVe))
+                setTime(60)
               }}
             >Đặt vé</button>
 
@@ -179,7 +178,7 @@ export function KetQuaDatVe(props) {
             <p className="m-0 tracking-wider text-lg">{info.danhSachGhe[0].tenHeThongRap}</p>
             <p className="mb-2 text-sm">{info.danhSachGhe[0].tenCumRap} - <span>{info.thoiLuongPhim} phút</span></p>
             <div className='flex flex-wrap justify-start gap-3 overflow-auto h-14 '>
-              <div className='text-red-600'>Ghế:</div>
+              <div className='text-red-600'>Ghế: </div>
               {info.danhSachGhe?.map((ghe, index) => {
                 return <div className='text-green-500 ' key={index}>[{ghe.tenGhe}]</div>
               })}
@@ -203,7 +202,6 @@ export function KetQuaDatVe(props) {
       </div>
     </div>
   </section>
-
 }
 
 

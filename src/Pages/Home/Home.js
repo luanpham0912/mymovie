@@ -26,7 +26,7 @@ export default function Home(props) {
   
   return (
     <div> 
-     <div className='relative hiha' style={{backgroundImage : "url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg_c_bricks.png)"}}>  
+     <div className='relative hiha' style={{backgroundImage : "url('./img/wallbackground.jpg')"}}>  
         <HomeCarousel />
 
       </div>

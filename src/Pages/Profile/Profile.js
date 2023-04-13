@@ -98,13 +98,13 @@ export default function Profile() {
             <label htmlFor="checkboxPassword">Đổi mật khẩu: </label>
             <input id='checkboxPassword' className='ml-2' type='checkbox' onChange={handleChangeInput} />
             <form className={`form-group mt-2 ${show ? "block" : "hidden"}`} onSubmit={handleSubmitForm}>
-              <label>Mật khẩu hiện tại: </label>
+              <label style={{width: "40%" ,display : "inline-block"}}>Mật khẩu hiện tại: </label>
               <input required type='password' onChange={handleChangeInputText} className='shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-teal-400' placeholder='Nhập mật khẩu hiện tại' name='oldPassWord' />
-              <small className="form-text text-red-700 font-bold block text-end">{inputPassword.errors.oldPassWord}</small>
+              <small className="form-text text-red-700 font-bold block text-center mt-2">{inputPassword.errors.oldPassWord}</small>
               <br />
-              <label>Mật khẩu mới: </label>
+              <label style={{width: "40%" ,display : "inline-block"}}>Mật khẩu mới: </label>
               <input required type='password' onChange={handleChangeInputText} className='shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-teal-400' placeholder='Nhập mật khẩu mới' name='newPassWord' />
-              <small className="form-text text-red-700 font-bold block text-end">{inputPassword.errors.newPassWord}</small>
+              <small className="form-text text-red-700 font-bold block text-center mt-2">{inputPassword.errors.newPassWord}</small>
               <br />
               <button type="submit" className="py-3 px-2 bg-lime-400 mt-3 text-black rounded-md">Cập nhập</button>
 
